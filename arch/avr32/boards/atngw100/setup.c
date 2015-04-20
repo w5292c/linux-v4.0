@@ -120,6 +120,16 @@ static struct spi_board_info spi0_board_info[] __initdata = {
 	},
 };
 
+#ifdef CONFIG_BOARD_ATNGW100_SPI1_LCD
+static struct spi_board_info spi1_board_info[] __initdata = {
+	{
+		.modalias	= "fb_ili9341",
+		.max_speed_hz	= 8000000,
+		.chip_select	= 1,
+	},
+};
+#endif /* CONFIG_BOARD_ATNGW100_SPI1_LCD */
+
 static struct mci_platform_data __initdata mci0_data = {
 	.slot[0] = {
 		.bus_width	= 4,
@@ -267,6 +277,9 @@ static int __init atngw100_init(void)
 #endif
 
 	at32_add_device_spi(0, spi0_board_info, ARRAY_SIZE(spi0_board_info));
+#ifdef CONFIG_BOARD_ATNGW100_SPI1_LCD
+        at32_add_device_spi(1, spi1_board_info, ARRAY_SIZE(spi1_board_info));
+#endif /* CONFIG_BOARD_ATNGW100_SPI1_LCD */
 	at32_add_device_mci(0, &mci0_data);
 	at32_add_device_usba(0, &atngw100_usba_data);
 
