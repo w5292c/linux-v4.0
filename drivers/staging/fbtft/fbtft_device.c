@@ -463,7 +463,7 @@ static struct fbtft_device_display displays[] = {
 					.buswidth = 8,
 					.backlight = 1,
 				},
-				.startbyte = 0b01110000,
+				.startbyte = 0x70,
 				.bgr = true,
 				.gpios = (const struct fbtft_gpio []) {
 					{ "reset", 25 },
@@ -484,7 +484,7 @@ static struct fbtft_device_display displays[] = {
 					.backlight = 1,
 					.init_sequence = hy28b_init_sequence,
 				},
-				.startbyte = 0b01110000,
+				.startbyte = 0x70,
 				.bgr = true,
 				.fps= 50,
 				.gpios = (const struct fbtft_gpio []) {
@@ -597,7 +597,7 @@ static struct fbtft_device_display displays[] = {
 					.buswidth = 8,
 					.backlight = 1,
 				},
-				.startbyte = 0b01110000,
+				.startbyte = 0x70,
 				.bgr = true,
 				.gpios = (const struct fbtft_gpio []) {
 					{ "reset", 25 },
