@@ -123,7 +123,7 @@ static struct spi_board_info spi0_board_info[] __initdata = {
 #ifdef CONFIG_BOARD_ATNGW100_SPI1_LCD
 static struct spi_board_info spi1_board_info[] __initdata = {
 	{
-		.modalias	= "fb_ili9341",
+		.modalias	= "fbtft_device",
 		.max_speed_hz	= 8000000,
 		.chip_select	= 1,
 	},
