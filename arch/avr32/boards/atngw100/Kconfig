@@ -58,6 +58,9 @@ config BOARD_ATNGW100_EVKLCD10X_POW_QVGA
 
 endchoice
 
+config BOARD_ATNGW100_SPI1_LCD
+	bool "Enable LCD module on top of SPI1"
+
 if BOARD_ATNGW100_MRMT
 source	"arch/avr32/boards/atngw100/Kconfig_mrmt"
 endif
