@@ -32,3 +32,13 @@ obj-$(CONFIG_FB_FLEX)            += flexfb.o
 
 # Device modules
 obj-$(CONFIG_FB_TFT_FBTFT_DEVICE) += fbtft_device.o
+
+# enable debug output
+CFLAGS_fbtft.o                   := -DDEBUG
+CFLAGS_flexfb.o                  := -DDEBUG
+CFLAGS_fbtft-io.o                := -DDEBUG
+CFLAGS_fbtft-bus.o               := -DDEBUG
+CFLAGS_fbtft-core.o              := -DDEBUG
+CFLAGS_fb_ili9341.o              := -DDEBUG
+CFLAGS_fbtft-sysfs.o             := -DDEBUG
+CFLAGS_fbtft_device.o            := -DDEBUG
