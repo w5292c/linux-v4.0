@@ -124,8 +124,8 @@ static struct spi_board_info spi0_board_info[] __initdata = {
 static struct spi_board_info spi1_board_info[] __initdata = {
 	{
 		.modalias	= "fbtft_device",
-		.max_speed_hz	= 8000000,
-		.chip_select	= 1,
+		.max_speed_hz	= 4000000,
+		.chip_select	= 0,
 	},
 };
 #endif /* CONFIG_BOARD_ATNGW100_SPI1_LCD */
