@@ -1012,11 +1012,17 @@ static int atmel_spi_setup(struct spi_device *spi)
 		if (!asd)
 			return -ENOMEM;
 
+		if (!npcs_pin) {
+			npcs_pin = 34;
+			spi->cs_gpio = 34;
+			printk("XXXXXX: dirty hack, allocating CS pin to 34!!!\n");
+		}
 		ret = gpio_request(npcs_pin, dev_name(&spi->dev));
 		if (ret) {
 			kfree(asd);
 			return ret;
 		}
+		printk("XXXXXX: atmel_spi_setup: gpio_request: res:%d, pin:%u, name:[%s]\n", ret, npcs_pin, dev_name(&spi->dev));
 
 		asd->npcs_pin = npcs_pin;
 		spi->controller_state = asd;

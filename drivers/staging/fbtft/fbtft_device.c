@@ -1436,7 +1436,7 @@ static void __exit fbtft_device_exit(void)
 
 }
 
-arch_initcall(fbtft_device_init);
+late_initcall(fbtft_device_init);
 module_exit(fbtft_device_exit);
 
 MODULE_DESCRIPTION("Add a FBTFT device.");
