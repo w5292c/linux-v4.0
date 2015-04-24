@@ -280,7 +280,16 @@ static int __init atngw100_init(void)
 
 	at32_add_device_spi(0, spi0_board_info, ARRAY_SIZE(spi0_board_info));
 #ifdef CONFIG_BOARD_ATNGW100_SPI1_LCD
+	/* Configure SPI1 */
         at32_add_device_spi(1, spi1_board_info, ARRAY_SIZE(spi1_board_info));
+	/* Configure SPI1:CS0 pin */
+	at32_select_gpio(GPIO_PIN_PB(2), AT32_GPIOF_OUTPUT | AT32_GPIOF_HIGH);
+	/* Configure RESET pin */
+	at32_select_gpio(GPIO_PIN_PB(4), AT32_GPIOF_OUTPUT | AT32_GPIOF_HIGH);
+	/* Configure D/C (A0) pin */
+	at32_select_gpio(GPIO_PIN_PB(6), AT32_GPIOF_OUTPUT | AT32_GPIOF_HIGH);
+	/* Configure BACKLIGHT pin */
+	at32_select_gpio(GPIO_PIN_PA(27), AT32_GPIOF_OUTPUT | AT32_GPIOF_HIGH);
 #endif /* CONFIG_BOARD_ATNGW100_SPI1_LCD */
 	at32_add_device_mci(0, &mci0_data);
 	at32_add_device_usba(0, &atngw100_usba_data);
