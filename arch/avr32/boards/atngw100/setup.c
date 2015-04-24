@@ -212,6 +212,8 @@ void __init setup_board(void)
 {
 	at32_map_usart(1, 0, 0);	/* USART 1: /dev/ttyS0, DB9 */
 	at32_setup_serial_console(0);
+	at32_map_usart(0, 1, 0);
+	at32_setup_serial_console(1);
 }
 
 static const struct gpio_led ngw_leds[] = {
@@ -272,6 +274,7 @@ static int __init atngw100_init(void)
 #endif
 
 	at32_add_device_usart(0);
+	at32_add_device_usart(1);
 
 	set_hw_addr(at32_add_device_eth(0, &eth_data[0]));
 #ifndef CONFIG_BOARD_ATNGW100_MKII_LCD
